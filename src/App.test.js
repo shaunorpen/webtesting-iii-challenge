@@ -1,11 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as rtl from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import App from './App';
 
-describe('App component', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+afterEach(rtl.cleanup);
+
+let wrapper;
+
+beforeEach(() => {
+  wrapper = rtl.render(<App />);
+})
+
+describe('App component:', () => {
+  it('renders correctly', () => {
+    expect(wrapper.queryByText(/Unlocked/)).toBeInTheDocument();
+    expect(wrapper.queryByText(/Open/)).toBeInTheDocument();
+    expect(wrapper.queryByText(/Lock Gate/)).toBeInTheDocument();
+    expect(wrapper.queryByText(/Close Gate/)).toBeInTheDocument();
   });
 });
