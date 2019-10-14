@@ -11,7 +11,7 @@ let wrapper;
 
 beforeEach(() => {
   wrapper = rtl.render(<Gate />);
-})
+});
 
 describe('Gate component:', () => {
   it('renders correctly', () => {
