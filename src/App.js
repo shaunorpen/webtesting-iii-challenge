@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Display from './Display';
+import Controls from './Controls';
+
+class Dashboard extends React.Component {
+  state = {
+    locked: false,
+    closed: false,
+  };
+
+  render() {
+    const { closed, locked } = this.state;
+
+    return (
+      <>
+        <Display locked={locked} closed={closed} />
+        <Controls
+          locked={locked}
+          closed={closed}
+          toggleLocked={this.toggleLocked}
+          toggleClosed={this.toggleClosed}
+        />
+      </>
+    );
+  }
+
+  toggleLocked = () => {
+    this.setState(prev => ({ locked: !prev.locked }));
+  };
+
+  toggleClosed = () => {
+    this.setState(prev => ({ closed: !prev.closed }));
+  };
 }
 
-export default App;
+export default Dashboard;
