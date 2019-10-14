@@ -15,7 +15,7 @@ beforeEach(() => {
 
 describe('Gate component:', () => {
   it('renders correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
   });
 
   it('defaults to unlocked and open', () => {
