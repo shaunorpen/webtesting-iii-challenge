@@ -17,4 +17,18 @@ describe('Gate component:', () => {
   it('renders correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('defaults to unlocked and open', () => {
+    expect(wrapper.queryByText(/Unlocked/)).toBeInTheDocument();
+    expect(wrapper.queryByText(/Open/)).toBeInTheDocument();
+  });
+
+  it('cannot be closed or opened if it is locked', () => {
+    rtl.fireEvent.click(wrapper.queryByText(/Close Gate/));
+    rtl.fireEvent.click(wrapper.queryByText(/Lock Gate/));
+    expect(wrapper.queryByText(/Locked/)).toBeInTheDocument();
+    expect(wrapper.queryByText(/Closed/)).toBeInTheDocument();
+    expect(wrapper.queryByText(/Unlock Gate/)).toBeEnabled();
+    expect(wrapper.queryByText(/Open Gate/)).toBeDisabled();
+  });
 });
