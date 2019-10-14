@@ -18,3 +18,60 @@ exports[`Display component: renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Display component: renders correctly 2`] = `
+<div>
+  <div
+    class="display panel"
+  >
+    <div
+      class="led green-led"
+    >
+      Unlocked
+    </div>
+    <div
+      class="led red-led"
+    >
+      Closed
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Display component: renders correctly 3`] = `
+<div>
+  <div
+    class="display panel"
+  >
+    <div
+      class="led red-led"
+    >
+      Locked
+    </div>
+    <div
+      class="led green-led"
+    >
+      Open
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Display component: renders correctly 4`] = `
+<div>
+  <div
+    class="display panel"
+  >
+    <div
+      class="led red-led"
+    >
+      Locked
+    </div>
+    <div
+      class="led red-led"
+    >
+      Closed
+    </div>
+  </div>
+</div>
+`;
